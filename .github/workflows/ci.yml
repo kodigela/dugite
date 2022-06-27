@@ -46,6 +46,8 @@ jobs:
         run: npm run is-it-pretty
       - name: Env
         run: env
+      - name: git config
+        run: git config -l --show-origin
       - name: Test
         run: npm run test
         env:
