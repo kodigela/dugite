@@ -44,6 +44,8 @@ jobs:
         run: npm run build
       - name: Lint
         run: npm run is-it-pretty
+      - name: Env
+        run: env
       - name: Test
         run: npm run test
         env:
