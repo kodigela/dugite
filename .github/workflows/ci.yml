@@ -45,7 +45,7 @@ jobs:
       - name: Lint
         run: npm run is-it-pretty
       - name: Reset safe.directory
-        run: sudo git config --global --add safe.directory ""
+        run: git config --global --add safe.directory ""
       - name: Test
         run: npm run test
         env:
