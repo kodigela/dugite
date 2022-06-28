@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - niik/test-unset-by-adding
   pull_request:
 
 jobs:
@@ -47,7 +48,13 @@ jobs:
         run: git config --global --unset-all safe.directory || true
       - name: Unset git config safe.directory for linux
         if: runner.os == 'Linux'
-        run: sudo git config --system --unset-all safe.directory || true
+        run: sudo git config --global --add safe.directory ""
+      - name: List Git system config
+        run: git config --system -l
+      - name: List Git global config
+        run: git config --global -l
+      - name: List Git combined config
+        run: git config -l --show-origin
       - name: Test
         run: npm run test
         env:
