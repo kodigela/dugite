@@ -44,10 +44,7 @@ jobs:
         run: npm run build
       - name: Lint
         run: npm run is-it-pretty
-      - name: Unset git config safe.directory globally
-        run: git config --global --unset-all safe.directory || true
-      - name: Unset git config safe.directory for linux
-        if: runner.os == 'Linux'
+      - name: Reset safe.directory
         run: sudo git config --global --add safe.directory ""
       - name: List Git system config
         run: git config --system -l
